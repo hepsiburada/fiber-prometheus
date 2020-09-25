@@ -1,10 +1,11 @@
 package fiberprometheus
 
 import (
-	"github.com/gofiber/fiber"
 	"io/ioutil"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/gofiber/fiber/v2"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -14,8 +15,8 @@ func TestMiddleware_Register(t *testing.T) {
 	m := NewMiddleware("test_namespace", "test_http_subsystem", "/test-metrics")
 	m.Register(app)
 
-	app.Get("/testurl", func(c *fiber.Ctx) {
-		c.Send("Hello test")
+	app.Get("/testurl", func(c *fiber.Ctx) error {
+		return c.SendString("Hello test")
 	})
 
 	req := httptest.NewRequest(
