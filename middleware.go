@@ -22,8 +22,7 @@ type Middleware struct {
 func (m *Middleware) PrometheusHandler() fiber.Handler {
 	return func(c *fiber.Ctx) error {
 		if c.Path() == m.MetricPath {
-			c.Next()
-			return nil
+			return c.Next()
 		}
 
 		start := time.Now()

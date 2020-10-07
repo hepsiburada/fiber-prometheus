@@ -12,7 +12,7 @@ go get github.com/hepsiburada/fiber-prometheus
 package main
 
 import (
-	"github.com/gofiber/fiber"
+	"github.com/gofiber/fiber/v2"
 	"github.com/hepsiburada/fiber-prometheus"
 )
 
