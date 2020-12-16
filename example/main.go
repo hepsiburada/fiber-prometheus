@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
-	fiberprometheus "github.com/hepsiburada/fiber-prometheus"
+	fiberprometheus "github.com/hepsiburada/fiber-prometheus/v2"
 )
 
 func main() {
