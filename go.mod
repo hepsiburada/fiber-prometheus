@@ -1,4 +1,4 @@
-module github.com/hepsiburada/fiber-prometheus
+module github.com/hepsiburada/fiber-prometheus/v2
 
 go 1.14
 

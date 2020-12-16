@@ -21,7 +21,7 @@ type Middleware struct {
 
 func (m *Middleware) PrometheusHandler() fiber.Handler {
 	return func(c *fiber.Ctx) error {
-		if c.Path() == m.MetricPath {
+		if string(c.Context().Path()) == m.MetricPath {
 			return c.Next()
 		}
 
@@ -34,8 +34,8 @@ func (m *Middleware) PrometheusHandler() fiber.Handler {
 		statusCode := strconv.Itoa(c.Context().Response.StatusCode())
 		elapsed := float64(time.Since(start)) / float64(time.Second)
 
-		m.reqCount.WithLabelValues(statusCode, c.Method(), r.Path).Inc()
-		m.reqDuration.WithLabelValues(c.Method(), r.Path).Observe(elapsed)
+		m.reqCount.WithLabelValues(statusCode, string(c.Context().Method()), r.Path).Inc()
+		m.reqDuration.WithLabelValues(string(c.Context().Method()), r.Path).Observe(elapsed)
 		return nil
 	}
 }

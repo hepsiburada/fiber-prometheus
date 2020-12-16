@@ -3,7 +3,7 @@ Middleware for go fiber v2.x
 
 ## Installation
 ```bash
-go get github.com/hepsiburada/fiber-prometheus
+go get github.com/hepsiburada/fiber-prometheus/v2
 ```
 
 ## Examples
@@ -13,7 +13,7 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/hepsiburada/fiber-prometheus"
+	fiberprometheus "github.com/hepsiburada/fiber-prometheus/v2"
 )
 
 func main() {
